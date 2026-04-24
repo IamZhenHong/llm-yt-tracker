@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "contentDetails": {
+        "videoId": "vid_newest",
+        "videoPublishedAt": "2026-04-23T10:00:00Z"
+      },
+      "snippet": {
+        "title": "Newest video",
+        "channelId": "UCxxx"
+      }
+    },
+    {
+      "contentDetails": {
+        "videoId": "vid_middle",
+        "videoPublishedAt": "2026-04-22T10:00:00Z"
+      },
+      "snippet": {
+        "title": "Middle video",
+        "channelId": "UCxxx"
+      }
+    },
+    {
+      "contentDetails": {
+        "videoId": "vid_oldest",
+        "videoPublishedAt": "2026-04-21T10:00:00Z"
+      },
+      "snippet": {
+        "title": "Oldest video",
+        "channelId": "UCxxx"
+      }
+    }
+  ]
+}

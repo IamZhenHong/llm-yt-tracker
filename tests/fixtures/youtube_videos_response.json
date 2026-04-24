@@ -1,0 +1,7 @@
+{
+  "items": [
+    {"id": "vid_newest", "contentDetails": {"duration": "PT10M30S"}},
+    {"id": "vid_middle", "contentDetails": {"duration": "PT4M"}},
+    {"id": "vid_oldest", "contentDetails": {"duration": "PT1H2M3S"}}
+  ]
+}
