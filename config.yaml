@@ -1,0 +1,37 @@
+channels:
+  - name: "Andrej Karpathy"
+    handle: "@AndrejKarpathy"
+    id: ""
+  - name: "Yannic Kilcher"
+    handle: "@YannicKilcher"
+    id: ""
+  - name: "AI Explained"
+    handle: "@aiexplained-official"
+    id: ""
+  - name: "Machine Learning Street Talk"
+    handle: "@MachineLearningStreetTalk"
+    id: ""
+  - name: "Dwarkesh Patel"
+    handle: "@DwarkeshPatel"
+    id: ""
+  - name: "Sam Witteveen"
+    handle: "@SamWitteveen"
+    id: ""
+  - name: "1littlecoder"
+    handle: "@1littlecoder"
+    id: ""
+  - name: "Matthew Berman"
+    handle: "@matthew_berman"
+    id: ""
+
+backfill_per_channel: 3
+min_duration_seconds: 300
+
+models:
+  extraction: "gpt-4o-mini"
+  judge: "gpt-4o-mini"
+
+thresholds:
+  transcript_max_chars: 120000
+  long_video_seconds: 7200
+  distinctive_signatures_min_videos: 10
