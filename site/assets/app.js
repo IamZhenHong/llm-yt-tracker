@@ -53,7 +53,101 @@ function renderTimestamp() {
 }
 
 // Stubs (implemented in later tasks)
-function renderGraph() { /* Task 13 */ }
+function renderGraph() {
+  const container = document.getElementById("graph");
+  container.innerHTML = "";
+  if (!state.graph.nodes.length) {
+    container.innerHTML = "<p style='padding:16px;color:var(--muted)'>No graph data yet.</p>";
+    return;
+  }
+
+  const rect = container.getBoundingClientRect();
+  const width = rect.width;
+  const height = rect.height;
+
+  const svg = d3.select("#graph").append("svg")
+    .attr("viewBox", `0 0 ${width} ${height}`);
+
+  const channelColors = ["#2a4b7c", "#7a3e3a", "#4b6b3f", "#8a6436", "#5c3e6e", "#3a6a6b", "#8e5d2a", "#3d3a4f"];
+  const channelIds = state.graph.nodes.filter(n => n.type === "channel").map(n => n.id);
+  const colorFor = (id) => channelColors[channelIds.indexOf(id) % channelColors.length];
+
+  const nodes = state.graph.nodes.map(d => ({ ...d }));
+  const links = state.graph.links.map(d => ({ ...d }));
+
+  const linkEl = svg.append("g")
+    .attr("stroke", "#bbb")
+    .attr("stroke-opacity", 0.5)
+    .selectAll("line")
+    .data(links)
+    .join("line")
+    .attr("stroke-width", d => Math.sqrt(d.weight));
+
+  const nodeEl = svg.append("g")
+    .selectAll("g")
+    .data(nodes)
+    .join("g");
+
+  nodeEl.append("circle")
+    .attr("r", d => d.type === "channel" ? 8 + Math.sqrt(d.size) * 2 : 4 + Math.sqrt(d.size))
+    .attr("fill", d => d.type === "channel" ? colorFor(d.id) : "#bcae92")
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 1.5)
+    .style("cursor", d => d.type === "topic" ? "pointer" : "default")
+    .on("click", (event, d) => {
+      if (d.type === "topic") {
+        const topicLabel = d.label;
+        state.filter.topic = topicLabel;
+        writeFiltersToUrl();
+        renderClaims();
+        renderVideos();
+        document.getElementById("videos-table").scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
+  nodeEl.append("text")
+    .attr("dy", d => d.type === "channel" ? -14 : -8)
+    .attr("text-anchor", "middle")
+    .style("font-size", d => d.type === "channel" ? "12px" : "10px")
+    .style("font-weight", d => d.type === "channel" ? "600" : "400")
+    .style("fill", "#333")
+    .style("pointer-events", "none")
+    .text(d => d.label);
+
+  nodeEl.append("title").text(d => `${d.type}: ${d.label} (${d.size})`);
+
+  nodeEl.on("mouseover", (event, d) => {
+    const connected = new Set([d.id]);
+    links.forEach(l => {
+      if (l.source.id === d.id || l.source === d.id) connected.add(l.target.id || l.target);
+      if (l.target.id === d.id || l.target === d.id) connected.add(l.source.id || l.source);
+    });
+    nodeEl.style("opacity", n => connected.has(n.id) ? 1 : 0.2);
+    linkEl.style("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 0.9 : 0.05);
+  }).on("mouseout", () => {
+    nodeEl.style("opacity", 1);
+    linkEl.style("opacity", 0.5);
+  });
+
+  const sim = d3.forceSimulation(nodes)
+    .force("link", d3.forceLink(links).id(d => d.id).distance(80))
+    .force("charge", d3.forceManyBody().strength(-240))
+    .force("center", d3.forceCenter(width / 2, height / 2))
+    .force("collision", d3.forceCollide().radius(d => d.type === "channel" ? 24 : 12));
+
+  sim.on("tick", () => {
+    linkEl
+      .attr("x1", d => d.source.x).attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+    nodeEl.attr("transform", d => `translate(${d.x}, ${d.y})`);
+  });
+
+  const drag = d3.drag()
+    .on("start", (event, d) => { if (!event.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+    .on("drag", (event, d) => { d.fx = event.x; d.fy = event.y; })
+    .on("end", (event, d) => { if (!event.active) sim.alphaTarget(0); d.fx = null; d.fy = null; });
+  nodeEl.call(drag);
+}
 function renderSignatures() { /* Task 14 */ }
 function renderClaims() { /* Task 15 */ }
 function renderVideos() { /* Task 16 */ }
