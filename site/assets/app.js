@@ -148,7 +148,42 @@ function renderGraph() {
     .on("end", (event, d) => { if (!event.active) sim.alphaTarget(0); d.fx = null; d.fy = null; });
   nodeEl.call(drag);
 }
-function renderSignatures() { /* Task 14 */ }
+function renderSignatures() {
+  const container = document.getElementById("signatures");
+  container.innerHTML = '<div class="signatures-grid"></div>';
+  const grid = container.querySelector(".signatures-grid");
+
+  const entries = Object.entries(state.signatures).sort((a, b) => a[1].channel_name.localeCompare(b[1].channel_name));
+  if (!entries.length) {
+    container.innerHTML = "<p style='color:var(--muted)'>No signatures yet.</p>";
+    return;
+  }
+
+  for (const [cid, sig] of entries) {
+    const card = document.createElement("div");
+    card.className = "signature-card";
+    const heading = sig.mode === "distinctive" ? "Distinctive topics" : "Topics covered";
+    const top = (sig.topics || []).slice(0, 8);
+    const chips = top.map(t =>
+      `<span class="topic-chip" data-topic="${t.topic}">${t.topic}</span>`
+    ).join(" ");
+    card.innerHTML = `
+      <h3>${sig.channel_name}</h3>
+      <p class="meta">${sig.total_videos} video${sig.total_videos === 1 ? "" : "s"} · ${heading}</p>
+      <div>${chips || "<span class='meta'>No topics yet</span>"}</div>
+    `;
+    card.querySelectorAll(".topic-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        state.filter.topic = chip.dataset.topic;
+        writeFiltersToUrl();
+        renderClaims();
+        renderVideos();
+        document.getElementById("videos-table").scrollIntoView({ behavior: "smooth" });
+      });
+    });
+    grid.appendChild(card);
+  }
+}
 function renderClaims() { /* Task 15 */ }
 function renderVideos() { /* Task 16 */ }
 function wireFilters() { /* Task 16 */ }
