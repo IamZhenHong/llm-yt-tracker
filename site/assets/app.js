@@ -235,7 +235,90 @@ function normalizeForMatch(s) {
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
-function renderVideos() { /* Task 16 */ }
-function wireFilters() { /* Task 16 */ }
+function renderVideos() {
+  const tbody = document.querySelector("#videos-table tbody");
+  tbody.innerHTML = "";
+
+  let rows = [...state.videos];
+
+  if (state.filter.topic) {
+    const t = normalizeForMatch(state.filter.topic);
+    rows = rows.filter(v => (v.topics || []).map(normalizeForMatch).includes(t));
+  }
+  if (state.filter.channel) {
+    rows = rows.filter(v => v.channel_id === state.filter.channel);
+  }
+  if (state.filter.text) {
+    const q = state.filter.text.toLowerCase();
+    rows = rows.filter(v =>
+      (v.title || "").toLowerCase().includes(q) ||
+      (v.channel_name || "").toLowerCase().includes(q) ||
+      (v.summary || "").toLowerCase().includes(q) ||
+      (v.topics || []).some(t => t.toLowerCase().includes(q))
+    );
+  }
+
+  if (state.sortBy === "date") {
+    rows.sort((a, b) => b.published_at.localeCompare(a.published_at));
+  } else if (state.sortBy === "channel") {
+    rows.sort((a, b) =>
+      (a.channel_name || "").localeCompare(b.channel_name || "") ||
+      b.published_at.localeCompare(a.published_at)
+    );
+  }
+
+  if (!rows.length) {
+    tbody.innerHTML = `<tr><td colspan="5" style="color:var(--muted);padding:16px;">No videos match current filters.</td></tr>`;
+    return;
+  }
+
+  for (const v of rows) {
+    const tr = document.createElement("tr");
+    const dateStr = (v.published_at || "").slice(0, 10);
+    const topicChips = (v.topics || []).map(t =>
+      `<span class="topic-chip" data-topic="${escapeHtml(t)}">${escapeHtml(t)}</span>`
+    ).join(" ");
+    const summaryCell = v.transcript_source === "unavailable"
+      ? `<span class="unavailable-badge">transcript unavailable</span>`
+      : `<div class="summary-cell collapsed" data-full="${escapeHtml(v.summary || '')}">${escapeHtml(v.summary || '')}</div>`;
+    tr.innerHTML = `
+      <td>${dateStr}</td>
+      <td>${escapeHtml(v.channel_name || "")}</td>
+      <td><a href="${v.url}" target="_blank" rel="noopener">${escapeHtml(v.title || "")}</a></td>
+      <td>${topicChips}</td>
+      <td>${summaryCell}</td>
+    `;
+    tbody.appendChild(tr);
+  }
+
+  tbody.querySelectorAll(".topic-chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      state.filter.topic = chip.dataset.topic;
+      writeFiltersToUrl();
+      renderClaims();
+      renderVideos();
+    });
+  });
+  tbody.querySelectorAll(".summary-cell").forEach(cell => {
+    cell.addEventListener("click", () => cell.classList.toggle("collapsed"));
+  });
+}
+
+function wireFilters() {
+  const search = document.getElementById("video-search");
+  search.value = state.filter.text || "";
+  search.addEventListener("input", (e) => {
+    state.filter.text = e.target.value;
+    writeFiltersToUrl();
+    renderVideos();
+  });
+
+  const sortSel = document.getElementById("sort-by");
+  sortSel.value = state.sortBy;
+  sortSel.addEventListener("change", (e) => {
+    state.sortBy = e.target.value;
+    renderVideos();
+  });
+}
 
 boot();
