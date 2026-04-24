@@ -13,7 +13,7 @@ def build_signatures(videos: list[dict], distinctive_min: int) -> dict:
         cid = v["channel_id"]
         channel_names[cid] = v["channel_name"]
         channel_video_totals[cid] += 1
-        if v.get("transcript_source") != "captions":
+        if v.get("transcript_source") not in ("captions", "supadata", "deepgram"):
             continue
         for raw_topic in v.get("topics", []):
             t = normalize_topic(raw_topic)

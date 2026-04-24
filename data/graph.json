@@ -1,0 +1,495 @@
+{
+  "nodes": [
+    {
+      "id": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "type": "channel",
+      "label": "Andrej Karpathy",
+      "size": 3
+    },
+    {
+      "id": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "type": "channel",
+      "label": "Yannic Kilcher",
+      "size": 3
+    },
+    {
+      "id": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "type": "channel",
+      "label": "Matthew Berman",
+      "size": 3
+    },
+    {
+      "id": "channel:UChpleBmo18P08aKCIgti38g",
+      "type": "channel",
+      "label": "Matt Wolfe",
+      "size": 2
+    },
+    {
+      "id": "channel:UCcIXc5mJsHVYTZR1maL5l9w",
+      "type": "channel",
+      "label": "DeepLearning.AI",
+      "size": 1
+    },
+    {
+      "id": "topic:transformers",
+      "type": "topic",
+      "label": "transformers",
+      "size": 5
+    },
+    {
+      "id": "topic:scaling laws",
+      "type": "topic",
+      "label": "scaling laws",
+      "size": 2
+    },
+    {
+      "id": "topic:fine-tuning",
+      "type": "topic",
+      "label": "fine-tuning",
+      "size": 7
+    },
+    {
+      "id": "topic:tokenization",
+      "type": "topic",
+      "label": "tokenization",
+      "size": 6
+    },
+    {
+      "id": "topic:quantization",
+      "type": "topic",
+      "label": "quantization",
+      "size": 2
+    },
+    {
+      "id": "topic:flash attention",
+      "type": "topic",
+      "label": "flash attention",
+      "size": 1
+    },
+    {
+      "id": "topic:gradient accumulation",
+      "type": "topic",
+      "label": "gradient accumulation",
+      "size": 1
+    },
+    {
+      "id": "topic:distributed training",
+      "type": "topic",
+      "label": "distributed training",
+      "size": 1
+    },
+    {
+      "id": "topic:evaluation",
+      "type": "topic",
+      "label": "evaluation",
+      "size": 1
+    },
+    {
+      "id": "topic:reinforcement learning",
+      "type": "topic",
+      "label": "reinforcement learning",
+      "size": 2
+    },
+    {
+      "id": "topic:alignment",
+      "type": "topic",
+      "label": "alignment",
+      "size": 2
+    },
+    {
+      "id": "topic:reasoning",
+      "type": "topic",
+      "label": "reasoning",
+      "size": 1
+    },
+    {
+      "id": "topic:multimodal",
+      "type": "topic",
+      "label": "multimodal",
+      "size": 3
+    },
+    {
+      "id": "topic:tool use",
+      "type": "topic",
+      "label": "tool use",
+      "size": 6
+    },
+    {
+      "id": "topic:agents",
+      "type": "topic",
+      "label": "agents",
+      "size": 6
+    },
+    {
+      "id": "topic:autoregressive models",
+      "type": "topic",
+      "label": "autoregressive models",
+      "size": 1
+    },
+    {
+      "id": "topic:diffusion language models",
+      "type": "topic",
+      "label": "diffusion language models",
+      "size": 1
+    },
+    {
+      "id": "topic:speculative decoding",
+      "type": "topic",
+      "label": "speculative decoding",
+      "size": 1
+    },
+    {
+      "id": "topic:rejection sampling",
+      "type": "topic",
+      "label": "rejection sampling",
+      "size": 1
+    },
+    {
+      "id": "topic:gpu utilization",
+      "type": "topic",
+      "label": "gpu utilization",
+      "size": 1
+    },
+    {
+      "id": "topic:compute",
+      "type": "topic",
+      "label": "compute",
+      "size": 1
+    },
+    {
+      "id": "topic:pricing",
+      "type": "topic",
+      "label": "pricing",
+      "size": 1
+    },
+    {
+      "id": "topic:subscription models",
+      "type": "topic",
+      "label": "subscription models",
+      "size": 1
+    },
+    {
+      "id": "topic:demand",
+      "type": "topic",
+      "label": "demand",
+      "size": 1
+    },
+    {
+      "id": "topic:agi",
+      "type": "topic",
+      "label": "agi",
+      "size": 1
+    },
+    {
+      "id": "topic:code generation",
+      "type": "topic",
+      "label": "code generation",
+      "size": 2
+    },
+    {
+      "id": "topic:function calling",
+      "type": "topic",
+      "label": "function calling",
+      "size": 1
+    },
+    {
+      "id": "topic:open source models",
+      "type": "topic",
+      "label": "open source models",
+      "size": 1
+    },
+    {
+      "id": "topic:benchmarks",
+      "type": "topic",
+      "label": "benchmarks",
+      "size": 1
+    },
+    {
+      "id": "topic:artificial narrow intelligence",
+      "type": "topic",
+      "label": "artificial narrow intelligence",
+      "size": 1
+    },
+    {
+      "id": "topic:artificial general intelligence",
+      "type": "topic",
+      "label": "artificial general intelligence",
+      "size": 1
+    },
+    {
+      "id": "topic:machine learning",
+      "type": "topic",
+      "label": "machine learning",
+      "size": 1
+    },
+    {
+      "id": "topic:deep learning",
+      "type": "topic",
+      "label": "deep learning",
+      "size": 1
+    },
+    {
+      "id": "topic:ai impact",
+      "type": "topic",
+      "label": "ai impact",
+      "size": 1
+    }
+  ],
+  "links": [
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:transformers",
+      "weight": 3
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:scaling laws",
+      "weight": 2
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:fine-tuning",
+      "weight": 3
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:tokenization",
+      "weight": 3
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:quantization",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:flash attention",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:gradient accumulation",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:distributed training",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:evaluation",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:reinforcement learning",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:alignment",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:reasoning",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:multimodal",
+      "weight": 2
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:tool use",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCXUPKJO5MZQN11PqgIvyuvQ",
+      "target": "topic:agents",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:autoregressive models",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:diffusion language models",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:speculative decoding",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:rejection sampling",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:gpu utilization",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:tool use",
+      "weight": 2
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:agents",
+      "weight": 2
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:reinforcement learning",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:transformers",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:fine-tuning",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCZHmQk67mSJgfCCTn7xBfew",
+      "target": "topic:quantization",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:compute",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:pricing",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:subscription models",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:demand",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:agi",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:fine-tuning",
+      "weight": 2
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:code generation",
+      "weight": 2
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:tokenization",
+      "weight": 2
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:transformers",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:alignment",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:agents",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCawZsQWqfGSbCI5yjkdVkTA",
+      "target": "topic:tool use",
+      "weight": 1
+    },
+    {
+      "source": "channel:UChpleBmo18P08aKCIgti38g",
+      "target": "topic:agents",
+      "weight": 2
+    },
+    {
+      "source": "channel:UChpleBmo18P08aKCIgti38g",
+      "target": "topic:tool use",
+      "weight": 2
+    },
+    {
+      "source": "channel:UChpleBmo18P08aKCIgti38g",
+      "target": "topic:function calling",
+      "weight": 1
+    },
+    {
+      "source": "channel:UChpleBmo18P08aKCIgti38g",
+      "target": "topic:multimodal",
+      "weight": 1
+    },
+    {
+      "source": "channel:UChpleBmo18P08aKCIgti38g",
+      "target": "topic:open source models",
+      "weight": 1
+    },
+    {
+      "source": "channel:UChpleBmo18P08aKCIgti38g",
+      "target": "topic:fine-tuning",
+      "weight": 1
+    },
+    {
+      "source": "channel:UChpleBmo18P08aKCIgti38g",
+      "target": "topic:tokenization",
+      "weight": 1
+    },
+    {
+      "source": "channel:UChpleBmo18P08aKCIgti38g",
+      "target": "topic:benchmarks",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCcIXc5mJsHVYTZR1maL5l9w",
+      "target": "topic:artificial narrow intelligence",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCcIXc5mJsHVYTZR1maL5l9w",
+      "target": "topic:artificial general intelligence",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCcIXc5mJsHVYTZR1maL5l9w",
+      "target": "topic:machine learning",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCcIXc5mJsHVYTZR1maL5l9w",
+      "target": "topic:deep learning",
+      "weight": 1
+    },
+    {
+      "source": "channel:UCcIXc5mJsHVYTZR1maL5l9w",
+      "target": "topic:ai impact",
+      "weight": 1
+    }
+  ]
+}

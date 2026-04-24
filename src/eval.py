@@ -19,12 +19,17 @@ class JudgeTopics(BaseModel):
     topics: list[str]
 
 
+class TopicLabel(BaseModel):
+    topic: str
+    label: Literal["correct", "partial", "wrong"]
+
+
 class TopicPrecision(BaseModel):
-    labels: dict[str, Literal["correct", "partial", "wrong"]]
+    entries: list[TopicLabel]
 
 
 def compute_availability(videos: list[dict]) -> dict[str, int]:
-    out = {"captions": 0, "unavailable": 0}
+    out = {"captions": 0, "supadata": 0, "deepgram": 0, "unavailable": 0}
     for v in videos:
         src = v.get("transcript_source", "unavailable")
         out[src] = out.get(src, 0) + 1
@@ -77,10 +82,11 @@ def judge_topic_precision(
     # Pass 2: grade extractor_topics against judge_topics
     sys_grade = (
         "You compare two sets of topics for a video transcript. "
-        "For each topic in EXTRACTOR_TOPICS, label it: "
+        "For each topic in EXTRACTOR_TOPICS, output one entry in `entries` with the exact topic string and a label: "
         "'correct' if it matches or is semantically equivalent to any topic in JUDGE_TOPICS; "
         "'partial' if it's related but narrower/broader; "
-        "'wrong' if it does not reflect the transcript's content."
+        "'wrong' if it does not reflect the transcript's content. "
+        "Return exactly one entry per EXTRACTOR_TOPICS item."
     )
     user = (
         f"JUDGE_TOPICS: {judge_topics}\n"
@@ -106,7 +112,7 @@ def run_eval(config_path: Path = Path("config.yaml"), data_dir: Path = Path("dat
 
     availability = compute_availability(videos)
 
-    attempted = [v for v in videos if v.get("transcript_source") == "captions"]
+    attempted = [v for v in videos if v.get("transcript_source") in ("captions", "supadata", "deepgram")]
     successes = [v for v in attempted if v.get("summary")]
     schema_validity = {
         "successes": len(successes),
@@ -123,7 +129,7 @@ def run_eval(config_path: Path = Path("config.yaml"), data_dir: Path = Path("dat
 
     for v in successes:
         transcript, source = get_transcript(v["video_id"])
-        if source != "captions" or not transcript:
+        if source not in ("captions", "supadata", "deepgram") or not transcript:
             continue
         try:
             fs = judge_summary_faithfulness(
@@ -144,11 +150,12 @@ def run_eval(config_path: Path = Path("config.yaml"), data_dir: Path = Path("dat
 
         try:
             tp = judge_topic_precision(client, cfg.models.judge, transcript, v["topics"])
-            for label in tp.labels.values():
+            labels = [e.label for e in tp.entries]
+            for label in labels:
                 overall_tp[label] = overall_tp.get(label, 0) + 1
-            correct = sum(1 for lbl in tp.labels.values() if lbl == "correct")
-            partial = sum(1 for lbl in tp.labels.values() if lbl == "partial")
-            wrong = sum(1 for lbl in tp.labels.values() if lbl == "wrong")
+            correct = sum(1 for lbl in labels if lbl == "correct")
+            partial = sum(1 for lbl in labels if lbl == "partial")
+            wrong = sum(1 for lbl in labels if lbl == "wrong")
             topic_prec_per.append(
                 {
                     "video_id": v["video_id"],

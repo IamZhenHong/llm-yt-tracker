@@ -5,24 +5,15 @@ channels:
 - name: Yannic Kilcher
   handle: '@YannicKilcher'
   id: UCZHmQk67mSJgfCCTn7xBfew
-- name: AI Explained
-  handle: '@aiexplained-official'
-  id: UCNJ1Ymd5yFuUPtn21xtRbbw
-- name: Machine Learning Street Talk
-  handle: '@MachineLearningStreetTalk'
-  id: UCMLtBahI5DMrt0NPvDSoIRQ
-- name: Dwarkesh Patel
-  handle: '@DwarkeshPatel'
-  id: UCXl4i9dYBrFOabk0xGmbkRA
-- name: Sam Witteveen
-  handle: '@SamWitteveen'
-  id: UCSdphiIAFdD_16nNOpliTIw
-- name: 1littlecoder
-  handle: '@1littlecoder'
-  id: UCpV_X0VrL8-jg3t6wYGS-1g
 - name: Matthew Berman
   handle: '@matthew_berman'
   id: UCawZsQWqfGSbCI5yjkdVkTA
+- name: Matt Wolfe
+  handle: '@mreflow'
+  id: UChpleBmo18P08aKCIgti38g
+- name: DeepLearning.AI
+  handle: '@Deeplearningai'
+  id: UCcIXc5mJsHVYTZR1maL5l9w
 backfill_per_channel: 3
 min_duration_seconds: 300
 models:

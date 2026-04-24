@@ -1,0 +1,292 @@
+{
+  "UCXUPKJO5MZQN11PqgIvyuvQ": {
+    "channel_name": "Andrej Karpathy",
+    "total_videos": 3,
+    "mode": "frequency",
+    "topics": [
+      {
+        "topic": "fine-tuning",
+        "count": 3,
+        "share": 0.13043478260869565
+      },
+      {
+        "topic": "tokenization",
+        "count": 3,
+        "share": 0.13043478260869565
+      },
+      {
+        "topic": "transformers",
+        "count": 3,
+        "share": 0.13043478260869565
+      },
+      {
+        "topic": "multimodal",
+        "count": 2,
+        "share": 0.08695652173913043
+      },
+      {
+        "topic": "scaling laws",
+        "count": 2,
+        "share": 0.08695652173913043
+      },
+      {
+        "topic": "agents",
+        "count": 1,
+        "share": 0.043478260869565216
+      },
+      {
+        "topic": "alignment",
+        "count": 1,
+        "share": 0.043478260869565216
+      },
+      {
+        "topic": "distributed training",
+        "count": 1,
+        "share": 0.043478260869565216
+      },
+      {
+        "topic": "evaluation",
+        "count": 1,
+        "share": 0.043478260869565216
+      },
+      {
+        "topic": "flash attention",
+        "count": 1,
+        "share": 0.043478260869565216
+      },
+      {
+        "topic": "gradient accumulation",
+        "count": 1,
+        "share": 0.043478260869565216
+      },
+      {
+        "topic": "quantization",
+        "count": 1,
+        "share": 0.043478260869565216
+      },
+      {
+        "topic": "reasoning",
+        "count": 1,
+        "share": 0.043478260869565216
+      },
+      {
+        "topic": "reinforcement learning",
+        "count": 1,
+        "share": 0.043478260869565216
+      },
+      {
+        "topic": "tool use",
+        "count": 1,
+        "share": 0.043478260869565216
+      }
+    ]
+  },
+  "UCZHmQk67mSJgfCCTn7xBfew": {
+    "channel_name": "Yannic Kilcher",
+    "total_videos": 3,
+    "mode": "frequency",
+    "topics": [
+      {
+        "topic": "agents",
+        "count": 2,
+        "share": 0.15384615384615385
+      },
+      {
+        "topic": "tool use",
+        "count": 2,
+        "share": 0.15384615384615385
+      },
+      {
+        "topic": "autoregressive models",
+        "count": 1,
+        "share": 0.07692307692307693
+      },
+      {
+        "topic": "diffusion language models",
+        "count": 1,
+        "share": 0.07692307692307693
+      },
+      {
+        "topic": "fine-tuning",
+        "count": 1,
+        "share": 0.07692307692307693
+      },
+      {
+        "topic": "gpu utilization",
+        "count": 1,
+        "share": 0.07692307692307693
+      },
+      {
+        "topic": "quantization",
+        "count": 1,
+        "share": 0.07692307692307693
+      },
+      {
+        "topic": "reinforcement learning",
+        "count": 1,
+        "share": 0.07692307692307693
+      },
+      {
+        "topic": "rejection sampling",
+        "count": 1,
+        "share": 0.07692307692307693
+      },
+      {
+        "topic": "speculative decoding",
+        "count": 1,
+        "share": 0.07692307692307693
+      },
+      {
+        "topic": "transformers",
+        "count": 1,
+        "share": 0.07692307692307693
+      }
+    ]
+  },
+  "UCawZsQWqfGSbCI5yjkdVkTA": {
+    "channel_name": "Matthew Berman",
+    "total_videos": 3,
+    "mode": "frequency",
+    "topics": [
+      {
+        "topic": "code generation",
+        "count": 2,
+        "share": 0.13333333333333333
+      },
+      {
+        "topic": "fine-tuning",
+        "count": 2,
+        "share": 0.13333333333333333
+      },
+      {
+        "topic": "tokenization",
+        "count": 2,
+        "share": 0.13333333333333333
+      },
+      {
+        "topic": "agents",
+        "count": 1,
+        "share": 0.06666666666666667
+      },
+      {
+        "topic": "agi",
+        "count": 1,
+        "share": 0.06666666666666667
+      },
+      {
+        "topic": "alignment",
+        "count": 1,
+        "share": 0.06666666666666667
+      },
+      {
+        "topic": "compute",
+        "count": 1,
+        "share": 0.06666666666666667
+      },
+      {
+        "topic": "demand",
+        "count": 1,
+        "share": 0.06666666666666667
+      },
+      {
+        "topic": "pricing",
+        "count": 1,
+        "share": 0.06666666666666667
+      },
+      {
+        "topic": "subscription models",
+        "count": 1,
+        "share": 0.06666666666666667
+      },
+      {
+        "topic": "tool use",
+        "count": 1,
+        "share": 0.06666666666666667
+      },
+      {
+        "topic": "transformers",
+        "count": 1,
+        "share": 0.06666666666666667
+      }
+    ]
+  },
+  "UChpleBmo18P08aKCIgti38g": {
+    "channel_name": "Matt Wolfe",
+    "total_videos": 2,
+    "mode": "frequency",
+    "topics": [
+      {
+        "topic": "agents",
+        "count": 2,
+        "share": 0.2
+      },
+      {
+        "topic": "tool use",
+        "count": 2,
+        "share": 0.2
+      },
+      {
+        "topic": "benchmarks",
+        "count": 1,
+        "share": 0.1
+      },
+      {
+        "topic": "fine-tuning",
+        "count": 1,
+        "share": 0.1
+      },
+      {
+        "topic": "function calling",
+        "count": 1,
+        "share": 0.1
+      },
+      {
+        "topic": "multimodal",
+        "count": 1,
+        "share": 0.1
+      },
+      {
+        "topic": "open source models",
+        "count": 1,
+        "share": 0.1
+      },
+      {
+        "topic": "tokenization",
+        "count": 1,
+        "share": 0.1
+      }
+    ]
+  },
+  "UCcIXc5mJsHVYTZR1maL5l9w": {
+    "channel_name": "DeepLearning.AI",
+    "total_videos": 1,
+    "mode": "frequency",
+    "topics": [
+      {
+        "topic": "ai impact",
+        "count": 1,
+        "share": 0.2
+      },
+      {
+        "topic": "artificial general intelligence",
+        "count": 1,
+        "share": 0.2
+      },
+      {
+        "topic": "artificial narrow intelligence",
+        "count": 1,
+        "share": 0.2
+      },
+      {
+        "topic": "deep learning",
+        "count": 1,
+        "share": 0.2
+      },
+      {
+        "topic": "machine learning",
+        "count": 1,
+        "share": 0.2
+      }
+    ]
+  }
+}

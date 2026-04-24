@@ -31,6 +31,8 @@ def run_pipeline(config_path: Path = Path("config.yaml"), data_dir: Path = Path(
 
     new_count = 0
     caption_count = 0
+    supadata_count = 0
+    deepgram_count = 0
     unavailable_count = 0
     blocked_count = 0
     failed_extract = 0
@@ -85,8 +87,13 @@ def run_pipeline(config_path: Path = Path("config.yaml"), data_dir: Path = Path(
                     "processed_at": _now_iso(),
                 }
             )
-            if source == "captions" and transcript:
-                caption_count += 1
+            if source in ("captions", "supadata", "deepgram") and transcript:
+                if source == "captions":
+                    caption_count += 1
+                elif source == "supadata":
+                    supadata_count += 1
+                else:
+                    deepgram_count += 1
                 try:
                     result, tokens = extract(
                         transcript=transcript,
@@ -138,6 +145,8 @@ def run_pipeline(config_path: Path = Path("config.yaml"), data_dir: Path = Path(
     summary = {
         "new_videos": new_count,
         "captions": caption_count,
+        "supadata": supadata_count,
+        "deepgram": deepgram_count,
         "unavailable": unavailable_count,
         "blocked": blocked_count,
         "failed_extract": failed_extract,

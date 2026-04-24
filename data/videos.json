@@ -1,1 +1,357 @@
-[]
+[
+  {
+    "video_id": "l8pRSuU81PU",
+    "channel_id": "UCXUPKJO5MZQN11PqgIvyuvQ",
+    "channel_name": "Andrej Karpathy",
+    "title": "Let's reproduce GPT-2 (124M)",
+    "published_at": "2024-06-09T23:31:35Z",
+    "url": "https://www.youtube.com/watch?v=l8pRSuU81PU",
+    "duration_seconds": 14486,
+    "transcript_source": "captions",
+    "speakers": [
+      "Andrej Karpathy"
+    ],
+    "summary": "In this video, Andrej Karpathy reproduces the GPT-2 model with 124 million parameters, focusing on its architecture, training optimizations, and performance improvements. He discusses key techniques such as flash attention, gradient accumulation, and the importance of scaling laws in enhancing model performance. The implementation is done using PyTorch, showcasing various strategies to optimize training speed and efficiency.",
+    "topics": [
+      "transformers",
+      "scaling laws",
+      "fine-tuning",
+      "tokenization",
+      "quantization",
+      "flash attention",
+      "gradient accumulation",
+      "distributed training",
+      "evaluation"
+    ],
+    "key_claims": [
+      "The GPT-2 model with 124 million parameters can be reproduced in about an hour for approximately $10 on cloud computing.",
+      "Scaling laws indicate that as model size increases, performance on downstream tasks improves.",
+      "Flash attention allows for efficient computation by avoiding materialization of large matrices, leading to significant performance improvements.",
+      "Gradient accumulation enables the simulation of larger batch sizes without exceeding GPU memory limits.",
+      "The model's performance on benchmarks like H-SWAG indicates that it can achieve results comparable to larger models with fewer training tokens."
+    ],
+    "processed_at": "2026-04-24T14:43:16Z"
+  },
+  {
+    "video_id": "7xTGNNLPyMI",
+    "channel_id": "UCXUPKJO5MZQN11PqgIvyuvQ",
+    "channel_name": "Andrej Karpathy",
+    "title": "Deep Dive into LLMs like ChatGPT",
+    "published_at": "2025-02-05T18:23:47Z",
+    "url": "https://www.youtube.com/watch?v=7xTGNNLPyMI",
+    "duration_seconds": 12684,
+    "transcript_source": "captions",
+    "speakers": [
+      "Andrej Karpathy"
+    ],
+    "summary": "Andrej Karpathy provides a detailed overview of large language models (LLMs) like ChatGPT, covering their construction, training stages, and the importance of high-quality datasets. He discusses the evolution of training costs, the role of human labelers in fine-tuning, and the cognitive limitations of these models. The video also explores future capabilities of LLMs, including multimodal processing and advanced reasoning through reinforcement learning.",
+    "topics": [
+      "fine-tuning",
+      "tokenization",
+      "transformers",
+      "scaling laws",
+      "reinforcement learning",
+      "alignment",
+      "reasoning",
+      "multimodal"
+    ],
+    "key_claims": [
+      "The cost of training large language models has significantly decreased due to improved hardware and software, with estimates dropping from $40,000 to around $100 today.",
+      "Training a model like GPT-2 involves processing millions of tokens and continuously updating the model's parameters to improve prediction accuracy.",
+      "Models rely on tokens for processing and are not inherently good at tasks like counting or spelling due to their token-based architecture.",
+      "Reinforcement learning allows models to discover effective problem-solving strategies through trial and error, leading to improved reasoning abilities.",
+      "Future developments in LLMs may include multimodal capabilities and the emergence of agents that can perform long-running tasks autonomously."
+    ],
+    "processed_at": "2026-04-24T14:43:56Z"
+  },
+  {
+    "video_id": "EWvNQjAaOHw",
+    "channel_id": "UCXUPKJO5MZQN11PqgIvyuvQ",
+    "channel_name": "Andrej Karpathy",
+    "title": "How I use LLMs",
+    "published_at": "2025-02-27T22:29:56Z",
+    "url": "https://www.youtube.com/watch?v=EWvNQjAaOHw",
+    "duration_seconds": 7872,
+    "transcript_source": "captions",
+    "speakers": [
+      "Andrej Karpathy"
+    ],
+    "summary": "Andrej Karpathy explores the practical applications and functionalities of large language models (LLMs) in his daily life, emphasizing their evolution and advanced features. He discusses how LLMs can process multimodal inputs, utilize tools for enhanced functionality, and improve user interaction through memory and custom instructions. The video showcases various use cases, from generating podcasts to analyzing complex data, highlighting the versatility of LLMs.",
+    "topics": [
+      "tokenization",
+      "fine-tuning",
+      "tool use",
+      "agents",
+      "multimodal",
+      "transformers"
+    ],
+    "key_claims": [
+      "ChatGPT was developed by OpenAI and deployed in 2022, becoming the first widely accessible large language model.",
+      "LLMs can generate custom podcasts based on uploaded documents, providing on-demand audio content.",
+      "Images can be tokenized and processed by LLMs in a similar manner to text, allowing for multimodal interactions.",
+      "The memory feature in LLMs enables them to retain user preferences and improve personalized responses over time.",
+      "LLMs can assist in analyzing complex data, such as nutrition labels and medical test results, providing valuable insights."
+    ],
+    "processed_at": "2026-04-24T14:44:44Z"
+  },
+  {
+    "video_id": "taCVT5vDAk0",
+    "channel_id": "UCZHmQk67mSJgfCCTn7xBfew",
+    "channel_name": "Yannic Kilcher",
+    "title": "TiDAR: Think in Diffusion, Talk in Autoregression (Paper Analysis)",
+    "published_at": "2025-12-27T14:33:29Z",
+    "url": "https://www.youtube.com/watch?v=taCVT5vDAk0",
+    "duration_seconds": 2822,
+    "transcript_source": "captions",
+    "speakers": [
+      "Yannic Kilcher"
+    ],
+    "summary": "The video discusses the TiDaR model, a hybrid architecture that combines autoregressive and diffusion language models to optimize GPU utilization during inference. By leveraging unused GPU capacity, TiDaR achieves significant speed improvements while maintaining the quality of autoregressive models. The model employs techniques like speculative decoding and rejection sampling to enhance efficiency and performance, ultimately closing the quality gap with traditional autoregressive models.",
+    "topics": [
+      "autoregressive models",
+      "diffusion language models",
+      "speculative decoding",
+      "rejection sampling",
+      "GPU utilization"
+    ],
+    "key_claims": [
+      "TiDaR utilizes unused GPU capacity during autoregressive inference to improve efficiency without significant trade-offs.",
+      "The model combines autoregressive and diffusion techniques to achieve faster token generation while maintaining high quality.",
+      "Speculative decoding allows for parallel checking of token proposals, enhancing the speed of the inference process.",
+      "TiDaR outperforms existing diffusion models in both efficiency and quality, achieving 4-6 times more tokens per second than traditional methods.",
+      "The architecture effectively closes the quality gap with autoregressive models while being significantly faster."
+    ],
+    "processed_at": "2026-04-24T14:45:04Z"
+  },
+  {
+    "video_id": "Dr6jw-WAd9E",
+    "channel_id": "UCZHmQk67mSJgfCCTn7xBfew",
+    "channel_name": "Yannic Kilcher",
+    "title": "Traditional X-Mas Stream",
+    "published_at": "2025-12-29T03:44:20Z",
+    "url": "https://www.youtube.com/watch?v=Dr6jw-WAd9E",
+    "duration_seconds": 9217,
+    "transcript_source": "captions",
+    "speakers": [
+      "Yannic Kilcher"
+    ],
+    "summary": "In his holiday stream, Yannic Kilcher engages with viewers while playing Minecraft, humorously acknowledging his lack of skill. He discusses various AI topics, including the challenges of recursive self-improvement in reinforcement learning, and reflects on the current focus of AI research. The stream is characterized by a lighthearted atmosphere, culminating in a chaotic attempt to defeat the Ender Dragon.",
+    "topics": [
+      "tool use",
+      "agents",
+      "reinforcement learning"
+    ],
+    "key_claims": [
+      "Yannic Kilcher admits to being terrible at Minecraft and emphasizes that the stream is just for fun.",
+      "He discusses the challenges of recursive self-improvement in reinforcement learning, noting that it can be unbounded but is problem-dependent.",
+      "Kilcher shares insights about the current state of AI research, suggesting that it is more focused on product development than groundbreaking discoveries.",
+      "He humorously attempts to build a Nether portal and ultimately dies in the process, showcasing his lack of experience in the game.",
+      "The stream features a tradition of playing Minecraft during the holidays, allowing for a relaxed and entertaining atmosphere."
+    ],
+    "processed_at": "2026-04-24T14:45:24Z"
+  },
+  {
+    "video_id": "xHi8PUIVyoo",
+    "channel_id": "UCZHmQk67mSJgfCCTn7xBfew",
+    "channel_name": "Yannic Kilcher",
+    "title": "I BUILT A FULLY AUTOMATIC MANSPLAINER",
+    "published_at": "2026-03-06T22:07:33Z",
+    "url": "https://www.youtube.com/watch?v=xHi8PUIVyoo",
+    "duration_seconds": 826,
+    "transcript_source": "captions",
+    "speakers": [
+      "Yannic Kilcher"
+    ],
+    "summary": "In this video, Yannic Kilcher showcases a device called the Nvidia DGX Spark, which he uses to create a fully automated 'mansplainer' that corrects minor inaccuracies in conversations. The DGX Spark is compact yet powerful, featuring 120 GB of unified RAM and capable of running large models. Kilcher demonstrates the device's capabilities by chaining together multiple AI models to generate responses in real-time, highlighting its potential for privacy-conscious users and tinkerers who want to experiment with AI locally.",
+    "topics": [
+      "transformers",
+      "fine-tuning",
+      "quantization",
+      "agents",
+      "tool use"
+    ],
+    "key_claims": [
+      "The Nvidia DGX Spark has 120 GB of unified RAM, allowing it to run large models effectively.",
+      "Kilcher's automated mansplainer uses a combination of AI models to correct conversational inaccuracies in real-time.",
+      "The DGX Spark is designed for privacy-conscious users and tinkerers who want to experiment with AI locally.",
+      "Nvidia provides playbooks for users to easily set up and run various AI projects on the DGX Spark.",
+      "The device is compact enough to fit in a backpack, making it portable for on-the-go use."
+    ],
+    "processed_at": "2026-04-24T14:45:48Z"
+  },
+  {
+    "video_id": "aO5k3haUz9Q",
+    "channel_id": "UCawZsQWqfGSbCI5yjkdVkTA",
+    "channel_name": "Matthew Berman",
+    "title": "WTF is Anthropic doing???",
+    "published_at": "2026-04-23T02:26:36Z",
+    "url": "https://www.youtube.com/watch?v=aO5k3haUz9Q",
+    "duration_seconds": 2853,
+    "transcript_source": "supadata",
+    "speakers": [
+      "Matthew Berman"
+    ],
+    "summary": "The video discusses Anthropic's recent decisions regarding their Claude Code subscription service, which has caused confusion and frustration among users. The speaker highlights a significant miscalculation by Anthropic's leadership regarding compute capacity and demand, leading to a breakdown in their operational model. As a result, users are facing limitations on their subscriptions, while competitors like OpenAI are capitalizing on Anthropic's missteps.",
+    "topics": [
+      "compute",
+      "pricing",
+      "subscription models",
+      "demand",
+      "AGI"
+    ],
+    "key_claims": [
+      "Anthropic removed Claude Code from lower subscription tiers without prior announcement, causing user frustration.",
+      "The company's leadership underestimated the demand for AI services, leading to a compute shortage.",
+      "Anthropic's recent policy changes are perceived as punitive towards users who utilize third-party tools like OpenClaw.",
+      "OpenAI is benefiting from Anthropic's miscalculations by capturing excess demand and improving their own offerings.",
+      "Anthropic's communication regarding subscription changes has been confusing and lacking transparency."
+    ],
+    "processed_at": "2026-04-24T15:17:37Z"
+  },
+  {
+    "video_id": "s6H4QF5K9MM",
+    "channel_id": "UCawZsQWqfGSbCI5yjkdVkTA",
+    "channel_name": "Matthew Berman",
+    "title": "GPT-5.5 is HERE!",
+    "published_at": "2026-04-23T19:33:46Z",
+    "url": "https://www.youtube.com/watch?v=s6H4QF5K9MM",
+    "duration_seconds": 6987,
+    "transcript_source": "supadata",
+    "speakers": [
+      "Matthew Berman",
+      "Ray Fernando"
+    ],
+    "summary": "In the video, Matthew Berman discusses the release of GPT-5.5, highlighting its improvements over previous models, particularly in coding efficiency and personality. He emphasizes the model's ability to understand complex tasks and its enhanced token efficiency, which allows for better performance at a lower cost per task. The discussion also touches on the competitive landscape of AI models, particularly in relation to OpenAI and Anthropic.",
+    "topics": [
+      "fine-tuning",
+      "code generation",
+      "tokenization",
+      "transformers",
+      "alignment"
+    ],
+    "key_claims": [
+      "GPT-5.5 is more token efficient than GPT-5.4, allowing for better performance at a lower cost per task.",
+      "The model shows significant improvements in coding tasks, particularly in agentic coding and knowledge work.",
+      "GPT-5.5 has a better personality and is more concise in its responses compared to GPT-5.4.",
+      "The model is designed to handle complex tasks more autonomously, improving its usability in real-world applications.",
+      "GPT-5.5 is rolling out to various user tiers, including pro and enterprise, with a focus on enhancing coding capabilities."
+    ],
+    "processed_at": "2026-04-24T15:17:48Z"
+  },
+  {
+    "video_id": "tNV9_I-zLO0",
+    "channel_id": "UCawZsQWqfGSbCI5yjkdVkTA",
+    "channel_name": "Matthew Berman",
+    "title": "OpenAI just dropped GPT-5.5... (WOAH)",
+    "published_at": "2026-04-23T23:47:55Z",
+    "url": "https://www.youtube.com/watch?v=tNV9_I-zLO0",
+    "duration_seconds": 1146,
+    "transcript_source": "supadata",
+    "speakers": [
+      "Matthew Berman"
+    ],
+    "summary": "The video discusses the release of OpenAI's GPT-5.5, highlighting its improvements over GPT-5.4, particularly in coding efficiency and user experience. GPT-5.5 is noted for its enhanced token efficiency, allowing for higher intelligence at a lower cost per token, despite being more expensive overall. The model shows significant advancements in agentic coding, knowledge work, and scientific research, making it a strong contender in enterprise applications.",
+    "topics": [
+      "fine-tuning",
+      "tokenization",
+      "agents",
+      "tool use",
+      "code generation"
+    ],
+    "key_claims": [
+      "GPT-5.5 is more token efficient than GPT-5.4, delivering higher intelligence with fewer tokens.",
+      "The model shows significant improvements in agentic coding and knowledge work, making it suitable for enterprise applications.",
+      "GPT-5.5 has a better personality and tone in its responses compared to GPT-5.4, providing concise explanations.",
+      "Benchmarks indicate a 67% to 77% accuracy improvement in various enterprise use cases with GPT-5.5 over GPT-5.4.",
+      "Despite being more expensive, the overall cost per intelligence is lower due to improved token efficiency."
+    ],
+    "processed_at": "2026-04-24T15:18:17Z"
+  },
+  {
+    "video_id": "bIrzOQtnp8w",
+    "channel_id": "UChpleBmo18P08aKCIgti38g",
+    "channel_name": "Matt Wolfe",
+    "title": "AI News: Huge Updates From Anthropic, OpenAI and Google",
+    "published_at": "2026-04-17T15:00:00Z",
+    "url": "https://www.youtube.com/watch?v=bIrzOQtnp8w",
+    "duration_seconds": 2204,
+    "transcript_source": "supadata",
+    "speakers": [
+      "Matt Wolfe"
+    ],
+    "summary": "This week in AI news, major updates were announced from OpenAI, Anthropic, and Google, with a focus on new features in their respective applications. OpenAI's Codeex app has evolved into a more integrated tool, capable of generating images and managing tasks alongside users, while Anthropic's Claude Code now supports parallel sessions for improved workflow. Additionally, Google introduced new functionalities in their Gemini app and rolled out a text-to-speech model that enhances voice modulation capabilities.",
+    "topics": [
+      "agents",
+      "tool use",
+      "function calling",
+      "multimodal",
+      "open source models"
+    ],
+    "key_claims": [
+      "OpenAI's Codeex app can now operate alongside users, generating images and managing tasks.",
+      "Anthropic's Claude Code allows for parallel sessions, enhancing productivity across multiple projects.",
+      "Google's Gemini app now includes advanced text-to-speech features that allow for expressive voice modulation.",
+      "The new Claude Opus 4.7 model shows significant improvements in coding benchmarks compared to its predecessor.",
+      "MiniAX M2.7 is now open source, allowing for fine-tuning and local deployment."
+    ],
+    "processed_at": "2026-04-24T15:18:28Z"
+  },
+  {
+    "video_id": "jsP-eRriC0k",
+    "channel_id": "UChpleBmo18P08aKCIgti38g",
+    "channel_name": "Matt Wolfe",
+    "title": "AI News: Massive Updates From OpenAI and Anthropic",
+    "published_at": "2026-04-24T15:00:00Z",
+    "url": "https://www.youtube.com/watch?v=jsP-eRriC0k",
+    "duration_seconds": 2577,
+    "transcript_source": "supadata",
+    "speakers": [
+      "Matt Wolfe"
+    ],
+    "summary": "This week in AI news, OpenAI announced the release of GPT 5.5, which demonstrates improved efficiency and performance in coding and terminal tasks, using fewer tokens than its predecessor. The model excels at understanding vague prompts and providing tailored responses, making it more user-friendly. Additionally, Anthropic introduced Claude design, a tool for creating visual work, and several new models, including Quinn 3.6, which showcases advancements in agentic coding capabilities.",
+    "topics": [
+      "fine-tuning",
+      "tokenization",
+      "benchmarks",
+      "agents",
+      "tool use"
+    ],
+    "key_claims": [
+      "GPT 5.5 can understand vague prompts better and requires less context to generate accurate responses.",
+      "The new model uses significantly fewer tokens for the same tasks compared to GPT 5.4, making it more efficient.",
+      "GPT 5.5 scored 82.7% on Terminal Bench, outperforming previous models and Anthropic's Mythos.",
+      "Anthropic's Claude design allows users to create polished visual work and animations with minimal input.",
+      "New models like Quinn 3.6 Max Preview and Quinn 3.6 27B have been released, showcasing improved coding capabilities and open-source options."
+    ],
+    "processed_at": "2026-04-24T15:18:48Z"
+  },
+  {
+    "video_id": "JPcx9qHzzgk",
+    "channel_id": "UCcIXc5mJsHVYTZR1maL5l9w",
+    "channel_name": "DeepLearning.AI",
+    "title": "AI for Everyone by Andrew Ng",
+    "published_at": "2026-03-23T21:55:47Z",
+    "url": "https://www.youtube.com/watch?v=JPcx9qHzzgk",
+    "duration_seconds": 461,
+    "transcript_source": "supadata",
+    "speakers": [
+      "Andrew Ng"
+    ],
+    "summary": "In this introductory course on AI, Andrew Ng emphasizes the distinction between artificial narrow intelligence (ANI) and artificial general intelligence (AGI), noting that while ANI is making significant progress, AGI remains a distant goal. The course aims to provide a realistic understanding of AI's capabilities and limitations, as well as its potential impact across various industries. Participants will learn how to apply AI technologies effectively in their organizations and understand the societal implications of AI, including issues of bias and job displacement.",
+    "topics": [
+      "artificial narrow intelligence",
+      "artificial general intelligence",
+      "machine learning",
+      "deep learning",
+      "AI impact"
+    ],
+    "key_claims": [
+      "AI is estimated to create an additional 13 trillion US dollars of value annually by 2030.",
+      "Most progress in AI today is in artificial narrow intelligence, not artificial general intelligence.",
+      "AGI may take decades or even centuries to achieve, and there is no need to worry about it unduly.",
+      "The course will teach participants how to apply AI technologies to their problems and understand their limitations.",
+      "Recent advancements in AI have been driven by deep learning technologies."
+    ],
+    "processed_at": "2026-04-24T15:19:07Z"
+  }
+]

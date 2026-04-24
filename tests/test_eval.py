@@ -5,6 +5,7 @@ from src.eval import (
     judge_topic_precision,
     SummaryFaithfulness,
     TopicPrecision,
+    TopicLabel,
 )
 
 
@@ -14,7 +15,7 @@ def test_compute_availability_counts_sources():
         {"transcript_source": "captions"},
         {"transcript_source": "unavailable"},
     ]
-    assert compute_availability(videos) == {"captions": 2, "unavailable": 1}
+    assert compute_availability(videos) == {"captions": 2, "supadata": 0, "deepgram": 0, "unavailable": 1}
 
 
 def test_judge_summary_faithfulness_calls_openai_and_returns_labels(mocker):
@@ -47,7 +48,10 @@ def test_judge_topic_precision_uses_two_passes(mocker):
     pass2 = MagicMock()
     pass2.choices = [MagicMock()]
     pass2.choices[0].message.parsed = TopicPrecision(
-        labels={"rlhf": "correct", "scaling laws": "wrong"}
+        entries=[
+            TopicLabel(topic="rlhf", label="correct"),
+            TopicLabel(topic="scaling laws", label="wrong"),
+        ]
     )
 
     client = MagicMock()
@@ -60,5 +64,8 @@ def test_judge_topic_precision_uses_two_passes(mocker):
         extractor_topics=["rlhf", "scaling laws"],
     )
 
-    assert result.labels == {"rlhf": "correct", "scaling laws": "wrong"}
+    assert [(e.topic, e.label) for e in result.entries] == [
+        ("rlhf", "correct"),
+        ("scaling laws", "wrong"),
+    ]
     assert client.beta.chat.completions.parse.call_count == 2

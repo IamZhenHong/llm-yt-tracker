@@ -27,7 +27,7 @@ class VideoRecord(BaseModel):
     published_at: str
     url: str
     duration_seconds: int
-    transcript_source: Literal["captions", "unavailable"]
+    transcript_source: Literal["captions", "supadata", "deepgram", "unavailable"]
     speakers: list[str]
     summary: str
     topics: list[str]
