@@ -2,7 +2,7 @@
 
 Automated tracker for 5 popular YouTube channels covering large language models. Each day, new uploads are fetched, transcribed, and passed through `gpt-4o-mini` to extract structured `summary`, `topics`, and `key_claims`. Results are rendered as a narrative page on GitHub Pages with a D3 force graph, channel signature cards, a claims table, and a filterable video table.
 
-**Live site:** `https://<your-username>.github.io/llm-yt-tracker/`
+**Live site:** `https://IamZhenHong.github.io/llm-yt-tracker/`
 
 ## Problem Statement
 
