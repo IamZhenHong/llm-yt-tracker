@@ -204,7 +204,7 @@ function renderClaims() {
 
   const rows = [];
   for (const v of state.videos) {
-    if (v.transcript_source !== "captions") continue;
+    if (v.transcript_source === "unavailable") continue;
     if (state.filter.topic && !v.topics.map(normalizeForMatch).includes(normalizeForMatch(state.filter.topic))) continue;
     if (state.filter.channel && v.channel_id !== state.filter.channel) continue;
     for (const claim of v.key_claims || []) {
@@ -268,13 +268,16 @@ function renderVideos() {
   }
 
   if (!rows.length) {
-    tbody.innerHTML = `<tr><td colspan="5" style="color:var(--muted);padding:16px;">No videos match current filters.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" style="color:var(--muted);padding:16px;">No videos match current filters.</td></tr>`;
     return;
   }
 
   for (const v of rows) {
     const tr = document.createElement("tr");
     const dateStr = (v.published_at || "").slice(0, 10);
+    const speakersCell = (v.speakers && v.speakers.length)
+      ? escapeHtml(v.speakers.join(", "))
+      : "<span style='color:var(--muted)'>—</span>";
     const topicChips = (v.topics || []).map(t =>
       `<span class="topic-chip" data-topic="${escapeHtml(t)}">${escapeHtml(t)}</span>`
     ).join(" ");
@@ -285,6 +288,7 @@ function renderVideos() {
       <td>${dateStr}</td>
       <td>${escapeHtml(v.channel_name || "")}</td>
       <td><a href="${v.url}" target="_blank" rel="noopener">${escapeHtml(v.title || "")}</a></td>
+      <td>${speakersCell}</td>
       <td>${topicChips}</td>
       <td>${summaryCell}</td>
     `;
