@@ -32,6 +32,7 @@ def run_pipeline(config_path: Path = Path("config.yaml"), data_dir: Path = Path(
     new_count = 0
     caption_count = 0
     unavailable_count = 0
+    blocked_count = 0
     failed_extract = 0
     total_tokens = 0
 
@@ -59,13 +60,20 @@ def run_pipeline(config_path: Path = Path("config.yaml"), data_dir: Path = Path(
             state.setdefault(channel.id, {})["last_checked"] = _now_iso()
             continue
 
-        newest_id = refs[0].video_id
-
         # Process oldest-first so on partial failure we still advance state sensibly
+        newest_resolved_id = None
+        hit_block = False
         for ref in reversed(refs):
             print(f"{channel.name}: processing {ref.video_id} ({ref.title[:60]})")
             new_count += 1
             transcript, source = get_transcript(ref.video_id)
+
+            if source == "blocked":
+                blocked_count += 1
+                hit_block = True
+                # Do NOT append a record and do NOT advance state past this video
+                break
+
             record = ref.model_dump()
             record.update(
                 {
@@ -105,8 +113,18 @@ def run_pipeline(config_path: Path = Path("config.yaml"), data_dir: Path = Path(
                 unavailable_count += 1
 
             videos.append(record)
+            newest_resolved_id = ref.video_id
 
-        state[channel.id] = {"last_video_id": newest_id, "last_checked": _now_iso()}
+        # Only advance last_video_id to the newest video we actually resolved
+        # (either captions or definitively unavailable). If we hit a rate-limit,
+        # the remaining newer videos will be retried on the next run.
+        prior = state.get(channel.id, {}).get("last_video_id")
+        entry = state.setdefault(channel.id, {})
+        if newest_resolved_id is not None:
+            entry["last_video_id"] = newest_resolved_id
+        elif prior is not None:
+            entry["last_video_id"] = prior
+        entry["last_checked"] = _now_iso()
 
     videos_path.write_text(json.dumps(videos, indent=2) + "\n")
     state_path.write_text(json.dumps(state, indent=2) + "\n")
@@ -121,6 +139,7 @@ def run_pipeline(config_path: Path = Path("config.yaml"), data_dir: Path = Path(
         "new_videos": new_count,
         "captions": caption_count,
         "unavailable": unavailable_count,
+        "blocked": blocked_count,
         "failed_extract": failed_extract,
         "total_tokens": total_tokens,
     }
