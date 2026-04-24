@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LLM YouTube Landscape</title>
+<link rel="stylesheet" href="assets/style.css" />
+<script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <h1>The LLM YouTube Landscape</h1>
+  <p class="sub">What eight leading creators are actually saying, summarized from their transcripts.</p>
+  <p class="timestamp" id="last-updated">Loading…</p>
+</header>
+
+<main>
+  <section class="intro">
+    <p>
+      This page tracks eight popular YouTube channels focused on large language models.
+      Each video is transcribed from captions and passed through a small language model
+      to extract <em>topics</em>, a <em>summary</em>, and <em>key claims</em> — so every
+      row below reflects what the creator actually said, not just the title.
+    </p>
+    <p>
+      Start with the landscape view, explore who covers what, skim the claims, and search
+      the full video table.
+    </p>
+  </section>
+
+  <section class="graph-section">
+    <h2>The Landscape</h2>
+    <p class="section-lede">Channels and topics, linked by how often they're discussed. Hover a node to highlight its connections. Click a topic to filter the table below.</p>
+    <div id="graph"></div>
+  </section>
+
+  <section class="signatures-section">
+    <h2>Who Covers What</h2>
+    <p class="section-lede">Each card shows a channel's topic profile. Click a topic to filter.</p>
+    <div id="signatures"></div>
+  </section>
+
+  <section class="claims-section">
+    <h2>What They're Actually Saying</h2>
+    <p class="section-lede">Direct claims extracted from transcripts. Filter by topic or channel above.</p>
+    <div id="claims-filters"></div>
+    <table id="claims-table"><thead><tr><th>Claim</th><th>Channel</th><th>Video</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section class="videos-section">
+    <h2>All Videos</h2>
+    <div class="filters">
+      <input type="search" id="video-search" placeholder="Filter by title, channel, topic, summary…" />
+      <select id="sort-by">
+        <option value="date">Sort by date</option>
+        <option value="channel">Sort by channel</option>
+      </select>
+    </div>
+    <table id="videos-table">
+      <thead>
+        <tr><th>Date</th><th>Channel</th><th>Title</th><th>Topics</th><th>Summary</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p><a href="https://github.com/">Source on GitHub</a></p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
