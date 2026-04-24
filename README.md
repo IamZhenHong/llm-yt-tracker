@@ -4,6 +4,8 @@ Automated tracker for 5 popular YouTube channels covering large language models.
 
 **Live site:** `https://IamZhenHong.github.io/llm-yt-tracker/`
 
+> **Dataset frozen at submission.** The automated daily cron is disabled in `.github/workflows/update.yml` so the evaluated data set remains stable for review. The manual `workflow_dispatch` trigger is still wired up, and re-enabling the cron is a single-line uncomment.
+
 ## Problem Statement
 
 Follow a handful of leading LLM-focused YouTube creators, surface *what they actually say about LLM topics* (not just titles), and show how their topic coverage relates — served on a public page that stays current as new videos appear, using only free infrastructure.

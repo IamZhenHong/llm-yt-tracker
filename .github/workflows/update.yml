@@ -1,8 +1,10 @@
 name: update
 
 on:
-  schedule:
-    - cron: '0 2 * * *'
+  # Scheduled cron disabled after initial submission to freeze the dataset.
+  # Re-enable by uncommenting the schedule block below.
+  # schedule:
+  #   - cron: '0 2 * * *'
   workflow_dispatch:
 
 concurrency:
