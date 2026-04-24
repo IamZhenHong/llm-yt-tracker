@@ -184,7 +184,57 @@ function renderSignatures() {
     grid.appendChild(card);
   }
 }
-function renderClaims() { /* Task 15 */ }
+function renderClaims() {
+  const tbody = document.querySelector("#claims-table tbody");
+  tbody.innerHTML = "";
+  const filtersDiv = document.getElementById("claims-filters");
+  filtersDiv.innerHTML = state.filter.topic
+    ? `<p style="color:var(--muted);font-size:13px;">Filtered to topic: <strong>${state.filter.topic}</strong> <a href="#" id="clear-claim-topic">clear</a></p>`
+    : "";
+  const clearLink = document.getElementById("clear-claim-topic");
+  if (clearLink) {
+    clearLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      state.filter.topic = null;
+      writeFiltersToUrl();
+      renderClaims();
+      renderVideos();
+    });
+  }
+
+  const rows = [];
+  for (const v of state.videos) {
+    if (v.transcript_source !== "captions") continue;
+    if (state.filter.topic && !v.topics.map(normalizeForMatch).includes(normalizeForMatch(state.filter.topic))) continue;
+    if (state.filter.channel && v.channel_id !== state.filter.channel) continue;
+    for (const claim of v.key_claims || []) {
+      rows.push({ claim, channel: v.channel_name, title: v.title, url: v.url });
+    }
+  }
+
+  if (!rows.length) {
+    tbody.innerHTML = `<tr><td colspan="3" style="color:var(--muted);padding:16px;">No claims match current filters.</td></tr>`;
+    return;
+  }
+
+  for (const r of rows.slice(0, 200)) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${escapeHtml(r.claim)}</td>
+      <td>${escapeHtml(r.channel)}</td>
+      <td><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a></td>
+    `;
+    tbody.appendChild(tr);
+  }
+}
+
+function normalizeForMatch(s) {
+  return s.trim().toLowerCase();
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
 function renderVideos() { /* Task 16 */ }
 function wireFilters() { /* Task 16 */ }
 
